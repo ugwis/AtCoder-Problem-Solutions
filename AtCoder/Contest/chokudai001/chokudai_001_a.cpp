@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
- 
+
 #define SIZE 30
- 
+
 using namespace std;
- 
+
 int a[SIZE][SIZE];
- 
+
 int d[5]={0,-1,0,1,0};
- 
+
 pair<int,int> get_peak(){
 	pair<int,int> ret(make_pair(0,0));
 	for(int i=0;i<SIZE;i++){
@@ -19,7 +19,7 @@ pair<int,int> get_peak(){
 	}
 	return ret;
 }
- 
+
 void search_sur(int x,int y){
 	pair<int,int> next(x,y);
 	if(a[x][y] <= 0) return;
@@ -35,7 +35,7 @@ void search_sur(int x,int y){
 	}
 	if(next != make_pair(x,y)) search_sur(next.first,next.second);
 }
- 
+
 int main(){
 	for(int i=0;i<SIZE;i++){
 		for(int j=0;j<SIZE;j++){
