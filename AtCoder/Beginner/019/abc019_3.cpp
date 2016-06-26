@@ -13,8 +13,12 @@ int main() {
 	for(int i=0;i<n;i++){
 		cin >> a;
 		while(a%2==0) a/=2;
-		sets.insert(a);
+		if(sets.find(a) == sets.end()){
+			sets.insert(a);
+		} else {
+			c++;
+		}
 	}
-	cout << sets.size() << endl;
+	cout << n-c << endl;
 	return 0;
 }
