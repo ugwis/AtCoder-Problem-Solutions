@@ -1,11 +1,10 @@
 #include <iostream>
-#include <algorithm>
 
 using namespace std;
- 
+
 int main(){
 	int n;
-	int r[3000];
+	int r[3001];
 	int dp[3000][2];
 	cin >> n;
 	for(int i = 0; i < n; i++){
