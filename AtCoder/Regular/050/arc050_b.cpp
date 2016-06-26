@@ -5,18 +5,17 @@ using namespace std;
 int main(){
 	lli R,B,x,y;
 	cin >> R >> B >> x >> y;
-	lli l = 0, r = R+1;
-	lli K = (l+r)/2;
+	lli l = 0, K, r = B+1;
 	while(l < r-1){
+		K = (l+r)/2;
 		lli k = (R - K)/(x - 1) + (B - K)/(y - 1);
-		if(k >= K && K <= B){
+		if(k >= K && K <= R){
 			l = K;
 		} else {
 			r = K;
 		}
-		K = (l+r)/2;
 	}
-	cout << K << endl;
+	cout << l << endl;
 	
 	return 0;
 }
