@@ -1,17 +1,20 @@
 #include <iostream>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
-
-int countLY(int y) {
-	int ret = y / 4;
-	ret -= y/100;
-	ret += y/400;
-	return ret;
-}
 
 int main(){
 	int a, b;
 	cin >> a >> b;
-	cout << (countLY(b) - countLY(a-1)) << endl;
+	int ret = b / 4;
+	ret -= (a - 1) / 4;
+	for (int i = 0; i <= 2000000000; i+=100){
+		if (a <= i && b >= i) ret--;
+	}
+	for (int i = 0; i <= 2000000000; i += 400){
+		if (a <= i && b >= i) ret++;
+	}
+	cout << ret << endl;
 	return 0;
 }
