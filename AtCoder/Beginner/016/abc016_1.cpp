@@ -1,0 +1,13 @@
+#include <vector>
+#include <string>
+#include <cstdio>
+#include <iostream>
+#include <stack>
+using namespace std;
+ 
+int main(){
+	int m,d;
+	cin >> m >> d;
+	cout << ((m%d==0)?"YES":"NO") << endl;
+	return 0;
+}
