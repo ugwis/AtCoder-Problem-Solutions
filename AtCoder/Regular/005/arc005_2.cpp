@@ -2,28 +2,28 @@
  
 using namespace std;
  
+string s[8] = {"R","L","U","D","RU","RD","LU","LD"};
+int dx[8] = {1,-1,0,0,1,1,-1,-1};
+int dy[8] = {0,0,-1,1,-1,1,-1,1};
+ 
 int main(){
 	int x,y;
 	string w;
-	cin >> x >> y >> w,x--,y--;
+	cin >> x >> y >> w;
 	char c[9][9];
-	int dx=0,dy=0;
 	for(int i=0;i<9;i++){
 		for(int j=0;j<9;j++){
 			cin >> c[i][j];
 		}
 	}
-	for(int unsigned i=0;i<w.size();i++){
-		if(w[i] == 'R') dx++;
-		if(w[i] == 'L') dx--;
-		if(w[i] == 'U') dy--;
-		if(w[i] == 'D') dy++;
-	}
+	x--,y--;
+	int dX,dY;
+	for(int i=0;i<8;i++) if(s[i] == w) dX = dx[i], dY = dy[i];
 	for(int i=0;i<4;i++){
 		cout << c[y][x];
-		x+=dx,y+=dy;
-		if(x == -1 || x == 9) dx*=-1,x+=2*dx;
-		if(y == -1 || y == 9) dy*=-1,y+=2*dy;
+		x+=dX,y+=dY;
+		if(x == -1 || x == 9) dX*=-1,x+=2*dX;
+		if(y == -1 || y == 9) dY*=-1,y+=2*dY;
 	}
 	cout << endl;
 	return 0;
