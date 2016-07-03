@@ -5,24 +5,28 @@
 using namespace std;
 
 int main(){
-	int i,n,t,sum=0;
-	vector<int> v;
-	
+	int n,t,tsum=0;
 	cin >> n >> t;
-	
+	vector<int> v;
 	for(int i=0;i<n;i++){
 		int a,b;
 		cin >> a >> b;
 		v.push_back(a-b);
-		sum+=a;
+		tsum+=a;
 	}
-	
+	if(tsum <= t){
+		cout << 0 << endl;
+		return 0;
+	}
 	sort(v.begin(),v.end(),greater<int>());
-	
-	for(i=0;i<n;i++){
-		if(sum<=t) break;
-		sum-=v[i];
+	int sum=0;
+	for(int i=0;i<n;i++){
+		sum+=v[i];
+		if(tsum-sum<=t){
+			cout << (i+1) << endl;
+			return 0;
+		}
 	}
-	cout << (sum<=t?i:-1) << endl;
+	cout << -1 << endl;
 	return 0;
 }
