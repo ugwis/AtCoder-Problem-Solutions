@@ -1,31 +1,16 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
 using namespace std;
 
-int main(){
-	int n;
-	cin >> n;
-	string s;
-	for(int i=0;i<n;i++){
-		s += 'a';
+void rec(int n,string s){
+	if(!n) cout << s << endl;
+	else for(char i='a';i<='c';i++){
+		rec(n-1,s+i);
 	}
-	bool escape = false;
-	while(!escape){
-		cout << s << endl;
-		s[n-1]++;
-		while(s.find("d",0) != string::npos){
-			int r = (int)s.find("d",0);
-			if(r - 1 < 0){
-				escape = true;
-				break;
-			}
-			s[r - 1]++;
-			s[r] = 'a';
-		}
-	}
+}
 
-	//	cout << ret << endl;
+int main(){
+	int n; cin >> n;
+	rec(n,"");
 	return 0;
 }
