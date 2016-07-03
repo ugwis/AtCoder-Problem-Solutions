@@ -5,11 +5,11 @@ using namespace std;
 int main(){
 	lli R,B,x,y;
 	cin >> R >> B >> x >> y;
-	lli l = 0, r = max(R,B);
+	lli l = 0, r = R+1;
 	lli K = (l+r)/2;
 	while(l < r-1){
 		lli k = (R - K)/(x - 1) + (B - K)/(y - 1);
-		if(k >= K && K <= min(R,B)){
+		if(k >= K && K <= B){
 			l = K;
 		} else {
 			r = K;
