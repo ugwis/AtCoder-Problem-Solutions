@@ -25,7 +25,7 @@ void search_sur(int x,int y){
 	if(a[x][y] <= 0) return;
 	cout << x+1 << " " << y+1 << endl;
 	a[x][y]--;
-	for(int i=3;i>=0;i--){
+	for(int i=3;i>=0;i++){
 		if(x+d[i] < 0 || x+d[i] >= SIZE) continue;
 		if(y+d[i+1] < 0 || y+d[i+1] >= SIZE) continue;
 		if(a[x][y] == a[x+d[i]][y+d[i+1]]){
