@@ -1,35 +1,28 @@
 #include <iostream>
-#include <cmath>
-#include <vector>
-#include <functional>
 #include <algorithm>
-#define lli long long int
+#include <functional>
+#include <vector>
 using namespace std;
 
 int main(){
-	int n,t;
-	vector<lli> d;
+	int i,n,t,sum=0;
+	vector<int> v;
+	
 	cin >> n >> t;
-	lli asum=0;
+	
 	for(int i=0;i<n;i++){
-		lli a,b;
+		int a,b;
 		cin >> a >> b;
-		asum+=a;
-		d.push_back(a-b);
+		v.push_back(a-b);
+		sum+=a;
 	}
-	if(asum <= t){
-		cout << 0 << endl;
-		return 0;
+	
+	sort(v.begin(),v.end(),greater<int>());
+	
+	for(i=0;i<n;i++){
+		if(sum<=t) break;
+		sum-=v[i];
 	}
-	sort(d.begin(),d.end(),greater<lli>());
-	lli sum=0;
-	for(int unsigned i=0;i<d.size();i++){
-		sum+=d[i];
-		if(asum-sum<=t){
-			cout << (i+1) << endl;
-			return 0;
-		}
-	}
-	cout << -1 << endl;
+	cout << (sum<=t?i:-1) << endl;
 	return 0;
 }
