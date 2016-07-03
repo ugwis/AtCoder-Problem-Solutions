@@ -1,13 +1,11 @@
-#include <vector>
-#include <string>
-#include <cstdio>
-#include <iostream>
-#include <stack>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int main(){
 	int m,d;
 	cin >> m >> d;
-	cout << ((m%d==0)?"YES":"NO") << endl;
+	if(m%d==0) cout << "YES" << endl;
+	else cout << "NO" << endl;
 	return 0;
 }
