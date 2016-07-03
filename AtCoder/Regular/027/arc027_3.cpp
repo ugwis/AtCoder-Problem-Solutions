@@ -14,8 +14,8 @@ int main(){
 	for(int i=0;i<n;i++){
 		int t,h;
 		cin >> t >> h;
-		for(int cx=0;cx<=x;cx++){
-			for(int cy=0;cy<=y;cy++){
+		for(int cy=0;cy<=y;cy++){
+			for(int cx=0;cx<=x;cx++){
 				if(dp[cx][cy] == -1) continue;
 				int dx = max(1,t-cy);
 				int dy = t-dx;
